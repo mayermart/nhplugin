@@ -1,0 +1,7 @@
+#summary Description of how to run the plugin in the debugger
+
+Under the project properties of the plugin (NHibernatePlugin.csproj) set the folowing values:
+  * Debug | Start external program
+    * `C:\Program Files\Microsoft Visual Studio 9.0\Common7\IDE\devenv.exe`
+  * Debug | Comand line arguments
+    * `/ReSharper.Plugin "C:\Code\NHibernatePlugin\NHibernatePlugin\bin\Debug\NHibernatePlugin.dll"`
