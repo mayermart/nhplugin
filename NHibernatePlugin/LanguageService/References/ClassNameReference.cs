@@ -14,7 +14,7 @@ namespace NHibernatePlugin.LanguageService.References
 {
     public class ClassNameReference : XmlReferenceWithTokenBase<ClassNameAttribute>
     {
-        public ClassNameReference(ClassNameAttribute owner, IXmlTokenNode token, TextRange rangeWithin)
+        public ClassNameReference(ClassNameAttribute owner, IXmlToken token, TextRange rangeWithin)
             : base(owner, token, rangeWithin) {
         }
 
@@ -73,7 +73,7 @@ namespace NHibernatePlugin.LanguageService.References
         }
 
         private ISymbolTable GetReferenceSymbolTable(IXmlTag containingElement, IXmlAttribute classNameAttribute) {
-            SymbolTable symbolTable = new SymbolTable(true);
+            SymbolTable symbolTable = new SymbolTable();
             ITypeElement typeElement = PsiUtils.GetTypeElement(containingElement, GetProject().GetSolution(), classNameAttribute.UnquotedValue);
             if (typeElement != null) {
                 Logger.LogMessage("  type found: {0}", typeElement.ShortName);
