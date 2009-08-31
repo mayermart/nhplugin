@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using JetBrains.ReSharper.Psi;
 using JetBrains.ReSharper.Psi.CSharp;
 using JetBrains.Util;
@@ -17,6 +19,23 @@ namespace NHibernatePlugin.LanguageService
             Logger.LogMessage("MappingFileTypePresenter.GetLongPresentableName {0}", type);
             return GetTypePresenter(CSharpLanguageService.CSHARP).GetLongPresentableName(type);
 
+        }
+
+        /// <summary>
+        /// Gets the unresolved scalar type presentation.
+        /// </summary>
+        /// <param name="name">The name of the unresolved scalar type presentation.</param>
+        /// <param name="typeArguments">The type arguments.</param>
+        /// <returns>Some string message that is displayed</returns>
+        public string GetUnresolvedScalarTypePresentation(string name, ICollection<IType> typeArguments) 
+        {
+            string fulltypestring = String.Empty;
+            foreach (IType type in typeArguments) 
+            {
+                fulltypestring += GetTypePresenter(CSharpLanguageService.CSHARP).GetLongPresentableName(type);
+            }
+            Logger.LogMessage("MappingFileTypePresenter.GetUnresolvedScalarTypePresentation {0}", fulltypestring);
+            return fulltypestring;
         }
 
         private static ITypePresenter GetTypePresenter(PsiLanguageType language) {

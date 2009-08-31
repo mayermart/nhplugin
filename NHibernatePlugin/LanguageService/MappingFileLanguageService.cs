@@ -23,13 +23,14 @@ namespace NHibernatePlugin.LanguageService
             Logger.LogMessage("NHibernatePlugin: MappingFileLanguageService ctor");
         }
 
-        public override IParser CreateParser(ILexer lexer, ISolution solution, IProject project, CheckForInterrupt checkForInterrupt) {
+        /*public override IParser CreateParser(ILexer lexer, ISolution solution, IProject project, CheckForInterrupt checkForInterrupt) {
             return new MappingFileParser(lexer, checkForInterrupt);
         }
-
+        
         public override bool ShouldInvalidatePsiCache(IElement element, PsiChangedElementType elementType) {
             return true;
-        }
+        }*/
+
         public override ILanguageSpecificSearcherFactory LanguageSpecificSearcherFactory {
             get { return MappingFileSearcherFactory.Instance; }
         }

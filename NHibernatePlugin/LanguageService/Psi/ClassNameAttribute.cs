@@ -28,12 +28,14 @@ namespace NHibernatePlugin.LanguageService.Psi
             return new IReferenceImpl[] {new ClassNameReference(this, valueToken, valueToken.UnquotedValueRange)};
         }
 
+        
+        /*
         protected override IReferenceImpl[] CreateReferences() {
             IXmlAttributeValue value = Value;
             if (value == null) {
                 return EmptyArray<IReferenceImpl>.Instance;
             }
             return CreateReferencesInternal(value);
-        }
+        }*/
     }
 }

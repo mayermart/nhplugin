@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using JetBrains.Application;
@@ -8,6 +9,7 @@ using JetBrains.ReSharper.Psi.ExtensionsAPI.Caches2;
 using JetBrains.ReSharper.Psi.Parsing;
 using JetBrains.ReSharper.Psi.Xml;
 using JetBrains.ReSharper.Psi.Xml.Impl;
+using JetBrains.Text;
 using JetBrains.Util;
 using NHibernatePlugin.LanguageService;
 
@@ -39,6 +41,15 @@ namespace NHibernatePlugin.LanguageService
                 return PsiLanguageType.UNKNOWN;
             }
             return MappingFileLanguageService.MAPPING_FILE;
+        }
+
+        public ILexerFactory CreateLexer(IProjectFile projectFile, IBuffer buffer) {
+            //Logger.LogMessage("MappingFileProjectFileLanguageService.CreateLexer for language type {0}", languageType.Name);
+            if (projectFile.LanguageType == MAPPING_FILE)
+            {
+                return new XmlLexerFactory(MappingFileLanguageService.MAPPING_FILE);
+            }
+            return null;
         }
 
         public ILexerFactory CreateLexer(ProjectFileType languageType, IBuffer buffer) {

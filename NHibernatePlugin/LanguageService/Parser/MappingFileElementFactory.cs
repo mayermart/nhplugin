@@ -86,7 +86,11 @@ namespace NHibernatePlugin.LanguageService.Parser
             return base.CreateTag(header, parentTag);
         }
 
-        public override IXmlAttribute CreateAttribute(IXmlIdentifierNode nameIdentifier, IXmlAttributeContainer attributeContainer, IXmlTagContainer parentTag) {
+    
+    
+        // public override IXmlAttribute CreateAttribute(IXmlIdentifierNode nameIdentifier, IXmlAttributeContainer attributeContainer, IXmlTagContainer parentTag) {
+        public override IXmlAttribute CreateAttribute(IXmlIdentifier nameIdentifier, IXmlAttributeContainer attributeContainer, IXmlTagContainer parentTag)
+        {    
             string attributeName = nameIdentifier.GetText();
             string containerName = attributeContainer.ContainerName;
             if (attributeName == Keyword.Name) {
@@ -129,6 +133,7 @@ namespace NHibernatePlugin.LanguageService.Parser
                 return new ClassNameAttribute(containerName);
             }
             return base.CreateAttribute(nameIdentifier, attributeContainer, parentTag);
+            
         }
     }
 }

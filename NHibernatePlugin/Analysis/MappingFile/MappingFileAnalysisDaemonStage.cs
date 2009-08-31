@@ -10,7 +10,8 @@ namespace NHibernatePlugin.Analysis.MappingFile
     /// Daemon stage for analysing NHibernate mapping files (*.hbm.xml). The class is automatically
     /// loaded by ReSharper daemon because it's marked with the [DaemonStage] attribute.
     /// </summary>
-    [DaemonStage(StagesAfter = new Type[] { typeof(XmlSyntaxErrorsStage) },  RunForInvisibleDocument = true)]
+    //[DaemonStage(StagesAfter = new Type[] { typeof(XmlSyntaxErrorsStage) },  RunForInvisibleDocument = true)]
+    [DaemonStage(StagesAfter = new Type[] { typeof(XmlSyntaxErrorHighlighting) })]
     public class MappingFileAnalysisDaemonStage : IDaemonStage
     {
         /// <summary>
@@ -21,6 +22,16 @@ namespace NHibernatePlugin.Analysis.MappingFile
             if (process == null) {
                 throw new ArgumentNullException("process");
             }
+            Logger.LogMessage("NHibernatePlugin: MappingFileAnalysisDaemonStage.CreateProcess called");
+            return new MappingFileAnalysisDaemonStageProcess(process);
+        }
+
+        public IDaemonStageProcess CreateProcess(IDaemonProcess process, DaemonProcessKind processKind) {
+            if (process == null)
+            {
+                throw new ArgumentNullException("process");
+            }
+            
             Logger.LogMessage("NHibernatePlugin: MappingFileAnalysisDaemonStage.CreateProcess called");
             return new MappingFileAnalysisDaemonStageProcess(process);
         }

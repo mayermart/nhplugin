@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using JetBrains.ProjectModel;
 using JetBrains.ReSharper.Psi;
@@ -24,6 +25,10 @@ namespace NHibernatePlugin.Refactorings.Rename
         public override void AdditionalReferenceProcessing(IDeclaredElement newTarget, IReference reference, ICollection<IReference> newReferences) {
         }
 
+        public override IReference TransformProjectedInitializer(IReference reference) {
+            return reference;
+        }
+
         public override bool DoNotProcess(IDeclaredElement element) {
             return false;
         }
@@ -33,8 +38,9 @@ namespace NHibernatePlugin.Refactorings.Rename
             return new string[] { newName };
         }
 
+        /*
         public override IReference TransformAnonymousType(IReference reference) {
             return reference;
-        }
+        }*/
     }
 }

@@ -22,6 +22,10 @@ namespace NHibernatePlugin.LanguageService
         public void BuildCache(IFile file, ICacheBuilder builder) {
         }
 
+        public void OnProjectPropertiesChange(IPsiModule project, bool referencesChanged, ICollection<IProjectFile> files) {
+            return;
+        }
+
         public bool HasCaseSensitiveName(TypeElement element) {
             throw new InvalidOperationException();
         }

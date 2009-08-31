@@ -1,3 +1,4 @@
+using System;
 using JetBrains.ReSharper.Daemon;
 
 namespace NHibernatePlugin.Highlighting
@@ -8,6 +9,10 @@ namespace NHibernatePlugin.Highlighting
 
         protected Highlighting(string tooltip) {
             m_Tooltip = tooltip;
+        }
+
+        public bool IsValid() {
+            return true;
         }
 
         public string ToolTip {

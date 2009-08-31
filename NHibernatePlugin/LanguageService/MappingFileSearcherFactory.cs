@@ -69,6 +69,24 @@ namespace NHibernatePlugin.LanguageService
             return null;
         }
 
+        public ILanguageSpecificSearcher CreateAnonymousTypeSearcher(IList<AnonymousTypeDescriptor> typeDescription, bool caseSensitive, FindResultConsumer consumer) {
+        /*    string elementName = element.ShortName;
+            Logger.LogMessage("GetAllPossibleNames {0}/{1}", element.GetType(), elementName);
+            Logger.LogMessage("  accessibility domain {0}", element.GetAccessibilityDomain());
+
+            IFieldDeclaration fieldDeclaration = element as IFieldDeclaration;
+            if (fieldDeclaration == null)
+            {
+                return new string[] { elementName };
+            }
+
+            Logger.LogMessage("  field declaration {0}", fieldDeclaration.DeclaredName);
+            IList<string> result = new List<string>();
+            Naming.AddOtherNames(result, element);
+            return result.ToArray();*/
+            return null;
+        }
+
         public ILanguageSpecificSearcher CreateAnonymousTypeSearcher(IList<Pair<string, IType>> typeDescription, FindResultConsumer consumer) {
             return null;
         }
