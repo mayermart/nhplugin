@@ -27,7 +27,7 @@ namespace NHibernatePlugin.LanguageService
         public ICollection<string> GetAllPossibleNames(IDeclaredElement element) {
             string elementName = element.ShortName;
             Logger.LogMessage("GetAllPossibleNames {0}/{1}", element.GetType(), elementName);
-            Logger.LogMessage("  accessibility domain {0}", element.GetAccessibilityDomain());
+            Logger.LogMessage("  accessibility domain {0}", element.GetSearchDomain());
 
             IFieldDeclaration fieldDeclaration = element as IFieldDeclaration;
             if (fieldDeclaration == null) {

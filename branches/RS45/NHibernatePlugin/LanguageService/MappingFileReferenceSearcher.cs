@@ -23,7 +23,7 @@ namespace NHibernatePlugin.LanguageService
             foreach (IDeclaredElement element in elements) {
                 m_Elements.Add(element);
                 m_ElementNames.Add(element.ShortName);
-                Logger.LogMessage("  Accessability domain {0}", element.GetAccessibilityDomain());
+                Logger.LogMessage("  Accessability domain {0}", element.GetSearchDomain());
                 Logger.LogMessage("  ShortName {0}/{1}", element.GetType(), element.ShortName);
 
                 Naming.AddOtherNames(m_ElementNames, element);
