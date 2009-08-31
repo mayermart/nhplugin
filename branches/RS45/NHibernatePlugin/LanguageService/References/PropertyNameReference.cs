@@ -14,7 +14,7 @@ namespace NHibernatePlugin.LanguageService.References
 {
     public class PropertyNameReference : XmlReferenceWithTokenBase<PropertyNameAttribute>
     {
-        public PropertyNameReference(PropertyNameAttribute owner, IXmlTokenNode token, TextRange rangeWithin)
+        public PropertyNameReference(PropertyNameAttribute owner, IXmlToken token, TextRange rangeWithin)
             : base(owner, token, rangeWithin) {
         }
 
